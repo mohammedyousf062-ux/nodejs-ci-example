@@ -27,6 +27,21 @@ jobs:
         run: npm test
 
   deploy-to-staging:
+    deploy-to-production:
+    needs: deploy-to-staging
+    runs-on: ubuntu-latest
+
+    environment: Production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Simulate deployment to Production
+        run: |
+          echo "Deploying application to Production..."
+          echo "Version: $(git rev-parse --short HEAD)"
+          echo "Production deployment successful!"
     needs: build-and-test
     runs-on: ubuntu-latest
 
