@@ -42,7 +42,7 @@ jobs:
           echo "Deploying application to Staging..."
           echo "Version: $(git rev-parse --short HEAD)"
           echo "Deployment successful!"
-    deploy-to-staging:
+deploy-to-staging:
   needs: build-and-test
   runs-on: ubuntu-latest
   environment: Staging
@@ -55,4 +55,4 @@ jobs:
       run: |
         echo "Deploying application to Staging environment..."
         echo "Application version: $(git rev-parse --short HEAD)"
-        echo "Deployment to Staging successful!"
+        echo "Deployment to Staging successful!"    
